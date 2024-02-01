@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8"><title>Tvbox</title><base target="_blank">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
@@ -37,7 +38,7 @@
 
 <li class="liul"><h3>线路</h3></li>
 <li>
-<a class="btn btn-dark  me-3" href='https://m.crsay.com/tv/admin/tvbox.php' title='Tvbox线路管理 需认证'>管理</a>
+<a class="btn btn-dark  me-3" href='https://m.crsay.com/tv/list/' title='Tvbox线路管理 需认证'>管理</a>
 <a class="btn btn-dark opacity-75  me-3" href='https://tv.crsay.com/jm/' title='Tvbox配置文件解密'>解密</a>
 <a class="btn btn-dark opacity-75  me-3" href='https://tv.crsay.com/gh/' title='Github静态文件加速'>加速</a>
 <a class="btn btn-dark opacity-50 me-3" href='javascript:if(confirm("确实要与远端同步吗?"))window.open("https://m.crsay.com/tv/admin/update.php")' target='_self'  title='配置文件同步到备用服务器 需认证'>同步</a>
@@ -47,23 +48,23 @@
 <li class="liul"><h3>播放器</h3></li>
 <li><i>FongMi影视</i></li>
 <li>
-<a class="btn btn-success  me-3 px-4" href='https://tv.crsay.com/dl/?fmtv32' title='[推荐]FongMi影视电视版-java-32'>电视版32位</a>
-<a class="btn btn-outline-success    me-3 px-4" href='https://tv.crsay.com/dl/?fmtv64' title='FongMi影视电视版-java-64'>电视版64位</a>
+<a class="btn btn-success  me-3 px-4" target="_self" href='javascript:dl("fmtv32")' title='[推荐]FongMi影视电视版-java-32'>电视版32位</a>
+<a class="btn btn-outline-success me-3 px-4" target="_self" href='javascript:dl("fmtv64")' title='FongMi影视电视版-java-64'>电视版64位</a>
 </li>
 <li>
-<a class="btn btn-success  me-3 px-4" href='https://tv.crsay.com/dl/?fmsj64' title='[推荐]FongMi影视手机版-java-64'>手机版64位</a>
-<a class="btn btn-outline-success   me-3 px-4" href='https://tv.crsay.com/dl/?fmsj32' title='FongMi影视手机版-java-32'>手机版32位</a>
+<a class="btn btn-success  me-3 px-4" target="_self" href='javascript:dl("fmsj64")' title='[推荐]FongMi影视手机版-java-64'>手机版64位</a>
+<a class="btn btn-outline-success me-3 px-4" target="_self" href='javascript:dl("fmsj32")' title='FongMi影视手机版-java-32'>手机版32位</a>
 </li>
 
 <li><i>影视仓</i></li>
 <li>
-<a class="btn btn-warning  me-3 px-4" href='https://tv.crsay.com/dl/?ysctv'>影视仓TV版</a>
+<a class="btn btn-warning  me-3 px-4" target="_self" href='javascript:dl("ysctv")'>影视仓TV版</a>
 </li>
 
 <li><i>安卓4.x版</i></li>
 <li>
-<a class="btn btn-outline-secondary  me-3 px-4" href='https://tv.crsay.com/dl/?fm4x' title='FongMi影视适配Android 4.x系统v2.2.0'> FongMi 影视  </a>
-<a class="btn btn-outline-secondary   me-3 px-3" href='https://tv.crsay.com/dl/?ysc4x' title='适配Android 4.x系统电视版'>影视仓3.0.32</a>
+<a class="btn btn-outline-secondary me-3 px-4" target="_self" href='javascript:dl("fm4x")' title='FongMi影视适配Android 4.x系统v2.2.0'> FongMi 影视  </a>
+<a class="btn btn-outline-secondary  me-3 px-3" target="_self" href='javascript:dl("ysc4x")' title='适配Android 4.x系统电视版'>影视仓3.0.32</a>
 </li>
 </ul>
 </div>
@@ -72,5 +73,6 @@
 function cp(txt,sel){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);setTips(sel,"Copied");}
 function getPos(x){var pos={left:0,top:0};let obj=document.getElementById(x);while(obj){pos.left+=obj.offsetLeft;pos.top+=obj.offsetTop;obj=obj.offsetParent}return pos}var div=document.createElement('div');
 function setTips(that,title){var pos=getPos(that);var maxWidth=0;var minWidth=0;var sreenX=window.innerWidth;var sreenY=window.innerHeight;var x=pos.left;var y=pos.top;var h=document.getElementById(that).clientHeight;var w=document.getElementById(that).clientWidth;div.innerHTML=title;div.className='tip';div.style.position='absolute';div.style.top=y-h-15+'px';div.style.left=x+(parseInt(w/8))+'px';maxWidth=sreenX-(x+(parseInt(w/8)));div.style.maxWidth=maxWidth+'px';div.style.zIndex=100;document.body.appendChild(div);if(/Win|Mac|X11/i.test(navigator.platform) ) {document.getElementById(that).addEventListener('mouseleave',function(){document.body.removeChild(div)})} else {window.setTimeout("closewin()",3000)}}function closewin(){document.body.removeChild(div)}
-function op(txt) {window.open(txt)}
+function op(url) {window.open(url)}
+function dl(url) {window.open("https://tv.crsay.com/dl/?"+Date.now() + url)}
 </script>
