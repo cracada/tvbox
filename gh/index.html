@@ -22,10 +22,10 @@
 		    <optgroup label="以下仅代理raw.githubusercontent.com域名">
 		      <option value="https://raw.fgit.cf">raw.fgit.cf</option>
 		      <option value="https://raw.gitmirror.com">raw.gitmirror.com</option>
-		      <option value="https://cdn.jsdelivr.net/gh">cdn.jsdelivr.net</option>
+		      <!--option value="https://cdn.jsdelivr.net/gh">cdn.jsdelivr.net</option>
 			  <option value="https://fastly.jsdelivr.net/gh">fastly.jsdelivr.net</option>
 		      <option value="https://gcore.jsdelivr.net/gh">gcore.jsdelivr.net</option>
-		      <option value="https://jsdelivr.b-cdn.net/gh">jsdelivr.b-cdn.net</option>
+		      <option value="https://jsdelivr.b-cdn.net/gh">jsdelivr.b-cdn.net</option-->
 		    </optgroup>
 		    </optgroup>
 		</select>
@@ -55,7 +55,8 @@
   button.addEventListener("click", function() {
 	const gh=ghsel.value;
 	const url=urlinput.value;
-	if(gh.indexOf("net/gh") > -1){var link = url.replace(/(?<=com\/.+?\/.+?)\/(.+?\/)/, '@$1').replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}else if(gh.indexOf("raw")> -1){var link = url.replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}else{ var link = gh + "/" + url; }
+	//if(gh.indexOf("net/gh") > -1){var link = url.replace(/(?<=com\/.+?\/.+?)\/(.+?\/)/, '@$1').replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}//else 
+	if(gh.indexOf("raw.")> -1){var link = url.replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}else{ var link = gh + "/" + url; }
 	//alert(link);
     window.open(link, "_blank");
   });
