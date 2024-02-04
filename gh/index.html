@@ -55,13 +55,7 @@
   button.addEventListener("click", function() {
 	const gh=ghsel.value;
 	const url=urlinput.value;
-	if(gh.indexOf("net/gh") > -1){
-		var link = url.replace(/(?<=com\/.+?\/.+?)\/(.+?\/)/, '@$1').replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}
-	else if(gh.indexOf("raw")> -1){
-		var link = url.replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}
-	else{ 
-		var link = gh + "/" + url; 
-	}
+	if(gh.indexOf("net/gh") > -1){var link = url.replace(/(?<=com\/.+?\/.+?)\/(.+?\/)/, '@$1').replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}else if(gh.indexOf("raw")> -1){var link = url.replace(/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/, gh);}else{ var link = gh + "/" + url; }
 	//alert(link);
     window.open(link, "_blank");
   });
