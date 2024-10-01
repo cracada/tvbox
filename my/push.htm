@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Tvbox</title><base target="_blank">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+html,body{height: 100%;}
+iframe{position: absolute;top: 30px;height: 100%;width:100%;border: none;
+button{background-color:#153707;border-radius:5px;float:left;}
+}
+  </style>
+</head>
+<body>
+	<div style="position:fixed;top:0;left:0;background-color:#808080;trxt-align:center;width:100%">
+<button onclick="cp('https://tv.crsay.com/box/','tips')">主仓</button>
+<button type='button' onclick="cp('https://m.crsay.com/tv/box/','tips')">备用</button>
+<button onclick="cp('https://tv.nxog.top/','tips')">欧歌</button>
+
+<button onclick="cp('https://raw.crsay.com/wwb521/live/main/tv.m3u','tips')">TV1</button>
+<button onclick="cp('https://a.lqtv.top/m3u/tv.m3u','tips')">TV2</button>
+<button onclick="cp('https://raw.crsay.com/fanmingming/live/main/tv/m3u/ipv6.m3u','tips')">TV3</button>
+<span id='tips'></span>
+</div>
+  <!--iframe src="https://tv.crsay.com/my/"></iframe-->
+
+<script language="javascript">
+//var url = decodeURI(window.location.search);
+
+
+document.write ("<iframe src='http://192.168.1."+window.location.search.slice(1)+"/'></iframe>");
+</script>
+
+
+
+<script>
+function cp(txt,sel){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);setTips(sel,"Copied");}
+function getPos(x){var pos={left:0,top:0};let obj=document.getElementById(x);while(obj){pos.left+=obj.offsetLeft;pos.top+=obj.offsetTop;obj=obj.offsetParent}return pos}var div=document.createElement('div');
+function setTips(that,title){var pos=getPos(that);var maxWidth=0;var minWidth=0;var sreenX=window.innerWidth;var sreenY=window.innerHeight;var x=pos.left;var y=pos.top;var h=document.getElementById(that).clientHeight;var w=document.getElementById(that).clientWidth;div.innerHTML=title;div.className='tip';div.style.position='absolute';div.style.top=y-h-15+'px';div.style.left=x+(parseInt(w/8))+'px';maxWidth=sreenX-(x+(parseInt(w/8)));div.style.maxWidth=maxWidth+'px';div.style.zIndex=100;document.body.appendChild(div);if(/Win|Mac|X11/i.test(navigator.platform) ) {document.getElementById(that).addEventListener('mouseleave',function(){document.body.removeChild(div)})} else {window.setTimeout("closewin()",3000)}}function closewin(){document.body.removeChild(div)}
+function op(url) {window.open(url)}
+function dl(url) {window.open("https://tv.crsay.com/dl/?"+Date.now() + url)}
+</script>
+</body>
+</html>
