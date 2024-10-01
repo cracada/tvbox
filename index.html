@@ -1,7 +1,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><title>Tvbox</title><base target="_blank">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap.min.css">
-<style type="text/css">h3{font-size:1.4rem;font-weight:400;}a{text-decoration:none;}li{margin:1.2rem auto;list-style:none;}.lia a{margin:auto 0.3rem;padding:5px 5px;}.lia a:hover{background-color:#007bff;color:#fff;}body{max-width:640px;margin:auto auto;}.tip{background-color:#000;border:1px solid #666;color:#fff;padding:10px 10px;}.liul{border-bottom:1px solid #ddd;}</style>
+<style type="text/css">h4{font-size:1.4rem;font-weight:400;}a{text-decoration:none;}li{margin:1.2rem auto;list-style:none;}.lia a{margin:auto 0.3rem;padding:5px 5px;}.lia a:hover{background-color:#007bff;color:#fff;}body{max-width:640px;margin:auto auto;}.tip{background-color:#000;border:1px solid #666;color:#fff;padding:10px 10px;}.liul{border-bottom:1px solid #ddd;margin-top:1.8rem;}</style>
 </head>
 <body>
 <div class="container">
@@ -16,20 +16,20 @@ https://m.crsay.com/tv/live/ 直播json
 https://m.crsay.com/tv/live/live.txt直播txt
 -->
 
-<div  class="me-4 float-end"><a class="btn btn-sm btn-light text-primary" href="https://m.crsay.com/tv/list/" title="Tvbox线路列表">线路</a> <!--a class="btn btn-sm text-info" href="https://tv.crsay.com/jm/" title="Tvbox配置文件解密">解密</a> <a class="btn btn-sm text-success" href="https://tv.crsay.com/gh/" title="Github静态文件加速">加速</a--></div>
+<div class="me-4 float-end"><a class="btn btn-sm btn-light text-primary" href="https://m.crsay.com/tv/list/" title="Tvbox线路列表">线路</a> <!--a class="btn btn-sm text-info" href="https://tv.crsay.com/jm/" title="Tvbox配置文件解密">解密</a> <a class="btn btn-sm text-success" href="https://tv.crsay.com/gh/" title="Github静态文件加速">加速</a--></div>
 <li class="liul"><h4>仓库</h4></li>
 <li>
 <button class="btn btn-primary px-3" onclick="cp('https://tv.crsay.com/box/','zlck')" id="zlck" title="点击复制仓库地址">主力仓</button>
 <button class="btn btn-secondary mx-3 px-3" onclick="cp('https://m.crsay.com/tv/box/','byck')" id="byck" title="点击复制备用仓地址">备用仓</button>
-<button class="btn btn-success opacity-75 px-3" onclick="cp('https://tv.nxog.top/','nxog')" id="nxog" title="点击复制欧歌多仓">欧歌仓</button>
+<button class="btn btn-success opacity-100 px-3" onclick="cp('https://tv.nxog.top/','nxog')" id="nxog" title="点击复制欧歌多仓">欧歌仓</button>
 </li>
 
 <li class="liul"><h4>直播</h4></li>
 <li>
-<button class="btn btn-outline-primary px-4" onclick="cp('https://raw.crsay.com/wwb521/live/main/tv.m3u','wwb521')" id="wwb521" title="点击复制wwb521混合源ipv4+v6">1</button>
-<button class="btn btn-outline-primary  mx-3 px-4" onclick="cp('https://a.lqtv.top/m3u/tv.m3u','lqtv')" id="lqtv" title="点击复制lqtv混合源ipv4+v6">2</button>
-<button class="btn btn-outline-success px-4" onclick="cp('https://raw.crsay.com/fanmingming/live/main/tv/m3u/ipv6.m3u','fmmtv')" id="fmmtv" title="点击复制范明明IPV6直播源">3</button>
-<button class="btn btn-outline-success ms-3 px-4" onclick="cp('https://raw.crsay.com/suxuang/myIPTV/main/ipv6.m3u','suxuang')" id="suxuang" title="点击复制suxuang IPV6直播源">4</button>
+<button class="btn btn-outline-primary px-4 position-relative" onclick="cp('https://raw.crsay.com/wwb521/live/main/tv.m3u','wwb521')" id="wwb521" title="点击复制wwb521混合源ipv4+v6">1<!--span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary opacity-75">Mixed</span--></button>
+<button class="btn btn-outline-primary  ms-3 px-4 position-relative" onclick="cp('https://a.lqtv.top/m3u/tv.m3u','lqtv')" id="lqtv" title="点击复制lqtv混合源ipv4+v6">2</button>
+<button class="btn btn-outline-success ms-2 px-4 position-relative" onclick="cp('https://raw.crsay.com/fanmingming/live/main/tv/m3u/ipv6.m3u','fmmtv')" id="fmmtv" title="点击复制范明明IPV6直播源">3<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success opacity-75">v6</span></button>
+<button class="btn btn-outline-success ms-3 px-4 position-relative" onclick="cp('https://raw.crsay.com/suxuang/myIPTV/main/ipv6.m3u','suxuang')" id="suxuang" title="点击复制suxuang IPV6直播源">4<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success opacity-75">v6</span></button>
 </li>
 
 <li class="liul"><h4>推送到</h4></li>
