@@ -20,7 +20,7 @@ button{;background-color:#7b90a8;color:#fff;border-radius:3px;margin: 0;padding-
  
 <script language="javascript">
 document.write ("<iframe src='http://192.168.1."+window.location.search.slice(1)+":9978/'></iframe>");
-function cpp(txt,sel){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);}
+function cpp(txt){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);}
 </script>
 </body>
 </html>
