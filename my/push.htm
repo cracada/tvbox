@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8"><title>Tvbox</title><base target="_blank">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 <style>
 html,body{height: 100%;margin:0;}
-iframe{position: absolute;top: 32px;height: 100%;width:100%;border: none;}
-button{;background-color:#eee;border-radius:3px;margin:auto 5px;}
+iframe{height: 100%;width:100%;border: none;}
+button{;background-color:#7b90a8;color:#fff;border-radius:3px;margin: 0;padding-top:6px;padding-bottom:6px;border:1px solid 7b80aa;}
 </style>
 </head>
 <body>
-<div style="position:fixed;top:0;left:0;background-color:#7b90a8;text-align:center;width:100%:z-index:999;">
+<div style="position:fixed;top:0;left:10%;background-color:#fff;text-align:center;width:100%:z-index:999;">
 <button onclick="cpp('https://raw.crsay.com/wwb521/live/main/tv.m3u')">TV1</button>
 <button onclick="cpp('https://a.lqtv.top/m3u/tv.m3u')">TV2</button>
 <button onclick="cpp('https://raw.crsay.com/fanmingming/live/main/tv/m3u/ipv6.m3u')">TV3</button>
@@ -18,10 +19,8 @@ button{;background-color:#eee;border-radius:3px;margin:auto 5px;}
 <button onclick="cpp('https://tv.nxog.top/')">欧歌</button>
 </div>
  
-<iframe src="http://tv.crsay.com/"></iframe>
-
 <script language="javascript">
-//document.write ("<iframe src='http://192.168.1."+window.location.search.slice(1)+"/'></iframe>");
+//document.write ("<iframe src='http://192.168.1."+window.location.search.slice(1)+":9978/'></iframe>");
 
 function cpp(txt,sel){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);}
 </script>
