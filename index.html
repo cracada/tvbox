@@ -81,7 +81,9 @@ https://m.crsay.com/tv/live/live.txt直播txt
 </div>
 
 <script>
-function cp(txt,sel){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);setTips(sel,"Copied");}
+function cp(txt,sel,tips){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);
+if(!tips)tips=txt;//setTips(sel,"Copied");}
+setTips(sel,tips);}
 function getPos(x){var pos={left:0,top:0};let obj=document.getElementById(x);while(obj){pos.left+=obj.offsetLeft;pos.top+=obj.offsetTop;obj=obj.offsetParent}return pos}var div=document.createElement('div');
 function setTips(that,title){var pos=getPos(that);var maxWidth=0;var minWidth=0;var sreenX=window.innerWidth;var sreenY=window.innerHeight;var x=pos.left;var y=pos.top;var h=document.getElementById(that).clientHeight;var w=document.getElementById(that).clientWidth;div.innerHTML=title;div.className='tip';div.style.position='absolute';div.style.top=y-h-15+'px';div.style.left=x+(parseInt(w/8))+'px';maxWidth=sreenX-(x+(parseInt(w/8)));div.style.maxWidth=maxWidth+'px';div.style.zIndex=100;document.body.appendChild(div);if(/Win|Mac|X11/i.test(navigator.platform) ) {document.getElementById(that).addEventListener('mouseleave',function(){document.body.removeChild(div)})} else {window.setTimeout("closewin()",3000)}}function closewin(){document.body.removeChild(div)}
 function op(url) {window.open(url)}
