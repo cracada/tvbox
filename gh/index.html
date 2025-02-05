@@ -48,6 +48,11 @@
 
 </div>
 <script>
+var args = decodeURI(window.location.search);
+var arg = args.trim().slice(1);
+//document.write(arg);
+if(arg){document.getElementById("url").value = arg;}
+
   const ghsel = document.getElementById("gh");
   const urlinput = document.getElementById("url");
   const button = document.getElementById("go");
