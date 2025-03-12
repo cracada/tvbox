@@ -11,21 +11,21 @@
 <ul>
 <!--li class="liul"><h3>仓库</h3></li>
 <li>
-<button class="btn btn-primary" onclick="cp('https://tv.crsay.com/box/','zlck')" id="zlck" title='点击复制仓库地址'>主力仓</button>
-<button class="btn btn-primary mx-3" onclick="cp('https://tv.crsay.com/live/','zlzbjs')" id="zlzbjs" title='点击复制直播地址(json格式)'>直播json</button>
-<button class="btn btn-primary opacity-75" onclick="cp('https://tv.crsay.com/live/live.txt','zlzb')" id="zlzb" title='点击复制直播地址(txt格式)'>直播txt</button>
+<button class="btn btn-primary" onclick="cp('https://tv.221220.xyz/box/','zlck')" id="zlck" title='点击复制仓库地址'>主力仓</button>
+<button class="btn btn-primary mx-3" onclick="cp('https://tv.221220.xyz/live/','zlzbjs')" id="zlzbjs" title='点击复制直播地址(json格式)'>直播json</button>
+<button class="btn btn-primary opacity-75" onclick="cp('https://tv.221220.xyz/live/live.txt','zlzb')" id="zlzb" title='点击复制直播地址(txt格式)'>直播txt</button>
 </li>
 
 <li>
-<button class="btn btn-secondary" onclick="cp('https://m.crsay.com/tv/box/','byck')" id="byck" title='点击复制仓库地址'>备用仓</button>
-<button class="btn btn-secondary mx-3" onclick="cp('https://m.crsay.com/tv/live/','byzbjs')" id="byzbjs" title='点击复制直播地址(json格式)'>直播json</button>
-<button class="btn btn-secondary opacity-75" onclick="cp('https://m.crsay.com/tv/live/live.txt','byzb')" id="byzb" title='点击复制直播地址(txt格式)'>直播txt</button>
+<button class="btn btn-secondary" onclick="cp('https://m.221220.xyz/tv/box/','byck')" id="byck" title='点击复制仓库地址'>备用仓</button>
+<button class="btn btn-secondary mx-3" onclick="cp('https://m.221220.xyz/tv/live/','byzbjs')" id="byzbjs" title='点击复制直播地址(json格式)'>直播json</button>
+<button class="btn btn-secondary opacity-75" onclick="cp('https://m.221220.xyz/tv/live/live.txt','byzb')" id="byzb" title='点击复制直播地址(txt格式)'>直播txt</button>
 </li-->
 
 <li class="liul"><h3>仓库</h3></li>
 <li>
-<button class="btn btn-primary" onclick="cp('https://tv.crsay.com/box/','zlck')" id="zlck" title='点击复制仓库地址'>主力仓</button>
-<button class="btn btn-primary opacity-75 mx-3" onclick="cp('https://m.crsay.com/tv/box/','byck')" id="byck" title='点击复制备用仓库地址'>备用仓</button>
+<button class="btn btn-primary" onclick="cp('https://tv.221220.xyz/box/','zlck')" id="zlck" title='点击复制仓库地址'>主力仓</button>
+<button class="btn btn-primary opacity-75 mx-3" onclick="cp('https://m.221220.xyz/tv/box/','byck')" id="byck" title='点击复制备用仓库地址'>备用仓</button>
 <button class="btn btn-dark opacity-75" onclick="cp('https://tv.nxog.top/','nxog')" id="nxog" title='点击复制欧歌多仓'>欧歌仓</button>
 </li>
 
@@ -45,10 +45,10 @@
 
 <li class="liul"><h3>线路</h3></li>
 <li>
-<a class="btn btn-dark px-2 me-3" href='https://m.crsay.com/tv/list/' title='Tvbox线路列表'>线路列表</a>
-<a class="btn btn-dark opacity-75 px-2 me-3" href='https://tv.crsay.com/jm/' title='Tvbox配置文件解密'>配置解密</a>
-<a class="btn btn-dark opacity-50  " href='https://tv.crsay.com/gh/' title='Github静态文件加速'>GH加速</a>
-<!--a class="btn btn-dark opacity-50 me-3" href='javascript:if(confirm("确实要与远端同步吗?"))window.open("https://m.crsay.com/tv/admin/update.php")' target='_self'  title='配置文件同步到备用服务器 需认证'>同步</a-->
+<a class="btn btn-dark px-2 me-3" href='https://m.221220.xyz/tv/list/' title='Tvbox线路列表'>线路列表</a>
+<a class="btn btn-dark opacity-75 px-2 me-3" href='https://tv.221220.xyz/jm/' title='Tvbox配置文件解密'>配置解密</a>
+<a class="btn btn-dark opacity-50  " href='https://gh.221220.xyz/gh/' title='Github静态文件加速'>GH加速</a>
+<!--a class="btn btn-dark opacity-50 me-3" href='javascript:if(confirm("确实要与远端同步吗?"))window.open("https://m.221220.xyz/tv/admin/update.php")' target='_self'  title='配置文件同步到备用服务器 需认证'>同步</a-->
 </li>
 
 <li class="liul"><h3>播放器</h3></li>
@@ -84,5 +84,5 @@ function cp(txt,sel){let area =document.createElement('divc');area.innerText=txt
 function getPos(x){var pos={left:0,top:0};let obj=document.getElementById(x);while(obj){pos.left+=obj.offsetLeft;pos.top+=obj.offsetTop;obj=obj.offsetParent}return pos}var div=document.createElement('div');
 function setTips(that,title){var pos=getPos(that);var maxWidth=0;var minWidth=0;var sreenX=window.innerWidth;var sreenY=window.innerHeight;var x=pos.left;var y=pos.top;var h=document.getElementById(that).clientHeight;var w=document.getElementById(that).clientWidth;div.innerHTML=title;div.className='tip';div.style.position='absolute';div.style.top=y-h-15+'px';div.style.left=x+(parseInt(w/8))+'px';maxWidth=sreenX-(x+(parseInt(w/8)));div.style.maxWidth=maxWidth+'px';div.style.zIndex=100;document.body.appendChild(div);if(/Win|Mac|X11/i.test(navigator.platform) ) {document.getElementById(that).addEventListener('mouseleave',function(){document.body.removeChild(div)})} else {window.setTimeout("closewin()",3000)}}function closewin(){document.body.removeChild(div)}
 function op(url) {window.open(url)}
-function dl(url) {window.open("https://tv.crsay.com/dl/?"+Date.now() + url)}
+function dl(url) {window.open("https://tv.221220.xyz/dl/?"+Date.now() + url)}
 </script>
