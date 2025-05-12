@@ -6,7 +6,6 @@
 
 欧歌 https://tv.nxog.top/
 
-自用: https://tv.221220.xyz/box/  
 
 
 **播放器下载：**
