@@ -1,14 +1,13 @@
 # 2023.05已停止更新
 
+饭太硬： http://www.xn--sss604efuw.com/tv/  
 
-仓库: https://tv.crsay.com/box/  
+肥猫： https://xn--z7x900a.com/
 
-直播(json): https://tv.crsay.com/live/  
-直播(txt): https://tv.crsay.com/live/live.txt   
+欧歌 https://tv.nxog.top/
 
-配置解密: https://tv.crsay.com/jm/  
+自用: https://tv.crsay.com/box/  
 
-Github加速: https://tv.crsay.com/gh/  
 
 **播放器下载：**
 
@@ -27,9 +26,6 @@ Github加速: https://tv.crsay.com/gh/
 
 *影视仓  (WX: 安卓哥开发)*
 
-- [电视版](https://tv.crsay.com/dl/?ysctv) :point_left:    
-
-- [迅雷云盘](https://tv.crsay.com/dl/?yscxl)    
+- [迅雷云盘](https://tv.crsay.com/dl/?yscxl)
+  
 - [夸克网盘](https://tv.crsay.com/dl/?ysckk)  
-
-- [Android 4.x版](https://tv.crsay.com/dl/?ysc4x)    
