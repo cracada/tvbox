@@ -1,0 +1,24 @@
+<script>
+const url = new URL(window.location.href);
+const type = url.searchParams.get('type');
+const gourl = url.searchParams.get('url');
+
+if (type=="p"){window.location.href = 'https://p.221220.xyz/' + gourl; }
+if (type=="d"){window.location.href = 'https://d.221220.xyz/redirect.php?alias=' + gourl; }
+if (type=="git"){window.location.href = replaceDomain(gourl); }
+if (type=="m"){window.location.href = 'https://www.221220.xyz/m/' + gourl; }
+if (type=="o"){window.location.href = 'https://o.221220.xyz/'; }
+
+function replaceDomain(url) {
+    try {
+        const urlObj = new URL(url);
+        urlObj.hostname = 'git.221220.xyz'; 
+        return urlObj.toString();
+    } catch (e) {
+        console.error("URL解析错误:", e);
+        return url; 
+    }
+}
+
+
+</script>

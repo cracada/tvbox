@@ -1,33 +1,66 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="utf-8"><title>Tvbox</title><base target="_blank">
+<html lang="zh-CN"><head><meta charset="utf-8"><base target="_blank">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-<!—meta http-equiv="Content-Security-Policy" content="default-src https:; frame-src https: http:;"—>
-<!—meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"—>
-<style>
-html,body{weight:100%;height: 100%;margin:auto;text-align:center;overflow-y:hidden;}
-iframe{height: 100%;width:100%;border: none;}
-button{;background-color:#7b90a8;color:#fff;border-radius:3px;margin: 0;padding-top:6px;padding-bottom:6px;border:1px solid 7b80aa;}
-</style>
+    <meta charset="UTF-8">
+    <title>推送</title>
+    <style>
+        body, html {
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+			text-align:center;
+        }
+        .button-container {
+           /*display: flex;*/ 
+            justify-content: space-around;
+            padding: 5px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            padding: 5px 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100% - 40px); /* 减去顶部按钮容器的高度 */
+            border: none;
+        }
+	.bf{background-color:#fee;}
+	.bo{background-color:#efe;}	
+	</style>
 </head>
 <body>
-    
-<!--div style="position:fixed;top:15px;left:50%;transform:translate(-50%,-50%);background-color:#fff;text-align:center;width:100%:z-index:999;margin:0 auto;"-->
-<div style="position:fixed;top:0;left:0;width:100%;z-index:999;">
-<!--button onclick="cpp('https://raw.221220.xyz/wwb521/live/main/tv.m3u')">TV1</button>
-<button onclick="cpp('https://a.lqtv.top/m3u/tv.m3u')">TV2</button>
-<button onclick="cpp('https://raw.221220.xyz/fanmingming/live/main/tv/m3u/ipv6.m3u')">TV3</button-->
 
-<button onclick="cpp('https://tv.221220.xyz/box/')">主仓</button>
-<button onclick="cpp('https://m.221220.xyz/tv/box/')">备用</button>
-<!--button onclick="cpp('https://tv.nxog.top/m/')">欧歌</button-->
-<button onclick="cpp('https://ghproxy.net/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt')">直播</button>
+<div class="button-container">
+    <button onclick='copyText("https://tv.221220.xyz/box/")'>主力仓</button>
+    <button onclick='copyText("https://m.221220.xyz/tv/box/")'>备用仓</button>
+    <button onclick='copyText("https://raw.221220.xyz/ssili126/tv/main/itvlist.txt")'>直播源</button>	
+    <button class="bo" onclick='javascript:window.open("https://m3u.ibert.me/")'>IPTV</button>
+    <button class="bf" onclick="changeIframeSrc()">文件传输</button>
 </div>
 
-<script language="javascript">
-var url = decodeURI(window.location.search).trim().slice(1); //1?2
-//if(url.indexOf('https://') = -1 && url.indexOf('http://') != -1){var ifr="about:blank";}
-document.write ("<iframe src='"+url+"'></iframe>");
-function cpp(txt){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);}
+
+
+<script>
+	var url = decodeURI(window.location.search);
+    var arg = url.slice(1).trimStart(); 
+
+	document.write ('<iframe id="myIframe" src="http://192.168.1.'+arg+':9978/"></iframe>');
+
+    function copyText(txt){let area =document.createElement('divc');area.innerText=txt;document.body.appendChild(area);let range =document.createRange();range.selectNode(area);let selection = window.getSelection();if (selection.rangeCount>0) selection.removeAllRanges();selection.addRange(range);document.execCommand('copy');selection.removeAllRanges();document.body.removeChild(area);}
+
+
+    function changeIframeSrc() {
+        var iframe = document.getElementById('myIframe');
+        iframe.src = 'http://192.168.1.'+arg+':56789/upload.html';
+        //alert('iframe 地址已更改');
+    }
+	
+
 </script>
 
 </body>
