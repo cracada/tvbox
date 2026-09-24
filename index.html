@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>· · ·</title>
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000000;
+    overflow: hidden;
+  }
+
+  #sky {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    white-space: pre;
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo,
+                 Consolas, "Liberation Mono", monospace;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #ffffff;
+    user-select: none;
+    pointer-events: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 两级星等，深色底上淡淡的白点 */
+  .s1 { color: #ffffff; opacity: .18; }
+  .s2 { color: #ffffff; opacity: .45; }
+
+  /* 暗淡蓝点：唯一带色元素 */
+  .dot {
+    color: #9ad2ff;
+    text-shadow:
+      0 0 4px  #66b3ff,
+      0 0 14px rgba(47, 127, 224, .55);
+    animation: breathe 6s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: .75; }
+    50%      { opacity: 1;   }
+  }
+
+  /* 题词：纯白 */
+  .caption {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 8vh;
+    z-index: 1;
+    padding: 0 24px;
+    text-align: center;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.9;
+    letter-spacing: .12em;
+    font-style: italic;
+    font-weight: 500;
+    color: #ffffff;
+    pointer-events: none;
+    animation: fadein 8s ease 1.6s both;
+  }
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<pre id="sky"></pre>
+
+<div class="caption">
+  a mote of dust suspended in a sunbeam
+</div>
+
+<script>
+(function () {
+  var pre = document.getElementById('sky');
+  var timer;
+
+  function build() {
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+
+    var fs = W < 700 ? 12 : 15;
+    pre.style.fontSize = fs + 'px';
+    pre.style.lineHeight = fs + 'px';
+
+    var cs = getComputedStyle(pre);
+    var ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = cs.fontSize + ' ' + cs.fontFamily;
+    var charW = ctx.measureText('M').width;
+    if (!charW || charW < 1) charW = fs * 0.6;
+
+    var cols = Math.max(20, Math.floor(W / charW));
+    var rows = Math.max(12, Math.floor(H / fs));
+
+    var cx = Math.floor(cols / 2);
+    var cy = Math.floor(rows / 2);
+
+    var DENSITY = 0.005;
+    var out = [];
+
+    for (var y = 0; y < rows; y++) {
+      var line = '';
+      for (var x = 0; x < cols; x++) {
+
+        if (x === cx && y === cy) {
+          line += '<span class="dot">•</span>';
+          continue;
+        }
+
+        if (Math.random() > DENSITY) {
+          line += ' ';
+          continue;
+        }
+
+        if (Math.random() < 0.6) line += '<span class="s1">.</span>';
+        else                     line += '<span class="s2">+</span>';
+      }
+      out.push(line);
+    }
+
+    pre.innerHTML = out.join('\n');
+  }
+
+  build();
+
+  window.addEventListener('resize', function () {
+    clearTimeout(timer);
+    timer = setTimeout(build, 250);
+  });
+})();
+</script>
+
+</body>
+</html>
